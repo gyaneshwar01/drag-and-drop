@@ -12,8 +12,9 @@ function ListContainer() {
     drop: ({ name }) => {
       if (!columnOne.some((item) => item === name)) {
         setColumnOne([...columnOne, name]);
-        setColumnTwo(columnTwo.filter((item) => item !== name));
-        setColumnThree(columnThree.filter((item) => item !== name));
+        columnTwo && setColumnTwo(columnTwo.filter((item) => item !== name));
+        columnThree &&
+          setColumnThree(columnThree.filter((item) => item !== name));
       }
     },
   });
@@ -23,8 +24,9 @@ function ListContainer() {
     drop: ({ name }) => {
       if (!columnTwo.some((item) => item === name)) {
         setColumnTwo([...columnTwo, name]);
-        setColumnOne(columnOne.filter((item) => item !== name));
-        setColumnThree(columnThree.filter((item) => item !== name));
+        columnOne && setColumnOne(columnOne.filter((item) => item !== name));
+        columnThree &&
+          setColumnThree(columnThree.filter((item) => item !== name));
       }
     },
   });
@@ -34,8 +36,8 @@ function ListContainer() {
     drop: ({ name }) => {
       if (!columnThree.some((item) => item === name)) {
         setColumnThree([...columnThree, name]);
-        setColumnOne(columnOne.filter((item) => item !== name));
-        setColumnTwo(columnTwo.filter((item) => item !== name));
+        columnOne && setColumnOne(columnOne.filter((item) => item !== name));
+        columnTwo && setColumnTwo(columnTwo.filter((item) => item !== name));
       }
     },
   });
